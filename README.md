@@ -67,11 +67,11 @@ If you want to run the app without the black console window or share it easily, 
    ```
 2. **Build the executable**:
    ```bash
-   pyinstaller --noconsole --onefile --icon=icon.ico main.py
+   py -m PyInstaller --noconsole --onefile --name "WoT Assistant" --add-data "src/styles;src/styles" --add-data "src/assets;src/assets" --add-data ".env;." --icon=icon.ico main.py
    ```
 *(Note: If your project has additional static assets inside the `src` folder, you might need to use the `--add-data` flag to include them in the `.exe`)*
   
-3. **Once finished**, your ready-to-use `main.exe` (or `wot_assistant.exe` if you used `--name`) will be located in the newly created `dist` folder.
+3. **Once finished**, your ready-to-use `WoT Assistant.exe` will be located in the newly created `dist` folder.
 
 *(Note: Move the `.exe` file wherever you like, but always remember to keep your `.env` file and `wot_stats.db` database in the exact same folder next to it! Just make a shortcut to the `.exe` and place it in your preferred location.)*
 
@@ -80,6 +80,8 @@ If you want to run the app without the black console window or share it easily, 
 
 - The initial synchronization may take a bit longer than usual. The app will automatically create a local `wot_stats.db` database and an `icons_cache` folder.
 - Designed for the EU region (`api.worldoftanks.eu`). You can adjust the `API_URL` variable in the `src/config.py` script for other regions if needed.
+- 
+## 📊 Screenshots
 
 ![WoT Stats Assistant Screenshot](screenshot1.png)
 ![WoT Stats Assistant Screenshot](screenshot2.png)
