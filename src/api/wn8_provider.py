@@ -9,7 +9,7 @@ class WN8Provider:
             return self._cache
 
         try:
-            res = requests.get("https://static.modxvm.com/wn8-data-exp/json/wn8exp.json", timeout=5).json()
+            res = requests.get("https://static.modxvm.com/wn8-data-exp/json/wg/wn8exp.json", timeout=5).json()
             self._cache = {item["IDNum"]: item for item in res["data"]}
             return self._cache
         except Exception as e:
