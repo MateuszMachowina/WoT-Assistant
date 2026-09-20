@@ -14,12 +14,17 @@ class WN8BadgeDelegate(QStyledItemDelegate):
         except (ValueError, TypeError):
             wn8 = 0
             
-        color_hex = Theme.get_wn8_color(wn8)
+        if wn8 == -1:
+            color_hex = '#3d444d'
+            text = "-"
+        else:
+            color_hex = Theme.get_wn8_color(wn8)
+            text = str(wn8)
+            
         color = QColor(color_hex)
         bg_color = QColor(color)
-        bg_color.setAlpha(40)
+        bg_color.setAlpha(40 if wn8 != -1 else 80)
         
-        text = str(wn8)
         font = painter.font()
         font.setBold(True)
         painter.setFont(font)

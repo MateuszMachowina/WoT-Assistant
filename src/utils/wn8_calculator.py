@@ -42,7 +42,7 @@ def calculate_global_wn8(info_data: dict, player_tanks: list, expected_values: d
     return int(round(wn8))
 
 def calculate_tank_wn8(tank_id: int, battles: int, wins: int, damage: int, frags: int, spotted: int, def_pts: int, expected_values: dict) -> int:
-    if tank_id not in expected_values or battles <= 0: return 0
+    if tank_id not in expected_values or battles <= 0: return -1
     
     exp = expected_values[tank_id]
     eDmg = exp['expDamage'] * battles

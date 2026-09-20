@@ -62,9 +62,9 @@ class TankTableView(QWidget):
         
         header.setSectionResizeMode(6, QHeaderView.ResizeMode.Stretch)
         
-        self.table.setColumnWidth(12, 120) # Fun Rating
+        self.table.setColumnWidth(12, 150) # Fun Rating
         header.setSectionResizeMode(12, QHeaderView.ResizeMode.Fixed)
-        self.table.setColumnWidth(13, 120) # Comp Rating
+        self.table.setColumnWidth(13, 150) # Comp Rating
         header.setSectionResizeMode(13, QHeaderView.ResizeMode.Fixed)
         
         self.table.setItemDelegateForColumn(8, WinRateBarDelegate(self.table))
@@ -154,7 +154,8 @@ class TankTableView(QWidget):
             wr_item.setData(Qt.ItemDataRole.UserRole, float(win_rate))
             self.table.setItem(row_idx, 8, wr_item)
             
-            wn8_item = NumericSortItem(tank_wn8, str(int(tank_wn8)))
+            wn8_text = str(int(tank_wn8)) if tank_wn8 >= 0 else "-"
+            wn8_item = NumericSortItem(tank_wn8, wn8_text)
             wn8_item.setData(Qt.ItemDataRole.EditRole, int(tank_wn8))
             self.table.setItem(row_idx, 9, wn8_item)
             

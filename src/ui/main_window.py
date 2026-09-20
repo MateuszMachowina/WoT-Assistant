@@ -91,7 +91,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle('WoT Stats Assistant')
         self.setWindowIcon(QIcon('icon.ico'))
-        self.resize(1400, 800)
+        self.resize(1820, 800)
         
         self.db = DatabaseManager()
         self.api_client = WGApiClient(self.db)
